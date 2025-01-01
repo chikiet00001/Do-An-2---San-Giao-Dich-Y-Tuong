@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Thành Viên - Sàn Ý Tưởng</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Sàn Ý Tưởng</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="ideas.html">Ý tưởng</a></li>
+                <li><a href="solutions.html">Tìm giải pháp</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Member Management Section -->
+    <section class="member-management">
+        <h1>Quản Lý Thành Viên</h1>
+
+        <!-- Member Table -->
+        <h2>Danh sách thành viên</h2>
+        <table class="member-table">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nguyễn Văn A</td>
+                    <td>a.nguyen@example.com</td>
+                    <td>Hoạt động</td>
+                    <td>
+                        <button class="btn edit-btn">Sửa</button>
+                        <button class="btn block-btn">Khóa</button>
+                        <button class="btn delete-btn">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trần Thị B</td>
+                    <td>b.tran@example.com</td>
+                    <td>Đã khóa</td>
+                    <td>
+                        <button class="btn edit-btn">Sửa</button>
+                        <button class="btn unblock-btn">Mở khóa</button>
+                        <button class="btn delete-btn">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Statistics Section -->
+        <h2>Thống kê</h2>
+        <div class="statistics">
+            <canvas id="ideasChart" width="400" height="200"></canvas>
+            <div class="visitor-count">
+                <h3>Số lượt truy cập:</h3>
+                <p><strong>12,345</strong></p>
+            </div>
+        </div>
+    </section>
+    <!-- Guest Notice -->
+    <section class="guest-notice">
+        <p>Chỉ các thành viên đã đăng nhập mới có thể tải tài liệu hoặc gửi phản hồi.</p>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Đại học Nam Cần Thơ - Sàn Ý Tưởng. Liên hệ: lekhoa583@gmail.com</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Chart.js for idea statistics
+        const ctx = document.getElementById('ideasChart').getContext('2d');
+        const ideasChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
+                datasets: [{
+                    label: 'Số lượng ý tưởng',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Để biểu đồ co giãn theo container
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

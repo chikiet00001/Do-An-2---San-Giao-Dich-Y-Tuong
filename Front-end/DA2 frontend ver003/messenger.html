@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Nhắn Tin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a >Sàn Ý Tưởng</a></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="messenger.html" class="active">Nhắn tin</a></li>
+                <li><a href="ideas.html">Ý tưởng</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="messenger-container">
+        <div class="messenger-sidebar">
+            <div class="search-bar">
+                <input type="text" id="user-search" placeholder="Tìm kiếm người dùng...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <ul class="user-list" id="user-list">
+                <li class="user" data-id="1" data-name="Nguyễn Văn A">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Nguyễn Văn A</h4>
+                        <p>Đang trực tuyến</p>
+                    </div>
+                </li>
+                <li class="user" data-id="2" data-name="Trần Thị B">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị B</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                <li class="user" data-id="3" data-name="Trần Thị C">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị C</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                <li class="user" data-id="4" data-name="Trần Thị D">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị D</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                <li class="user" data-id="5" data-name="Trần Thị E">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị E</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                <li class="user" data-id="6" data-name="Trần Thị F">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị F</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                <li class="user" data-id="7" data-name="Trần Thị G">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                    <div class="user-info">
+                        <h4>Trần Thị G</h4>
+                        <p>Đang offline</p>
+                    </div>
+                </li>
+                
+                <!-- Thêm người dùng khác -->
+            </ul>
+        </div>
+        
+        <div class="messenger-chat" id="messenger-chat">
+            <div class="chat-header">
+                <h3 id="chat-with">Người nhận</h3>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Tin nhắn sẽ được hiển thị tại đây -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Nhập tin nhắn...">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>        
+    </main>
+
+    <footer>
+        <p>© 2024 Đại học Nam Cần Thơ - Sàn Ý Tưởng. Liên hệ: lekhoa583@gmail.com</p>
+    </footer>
+
+    <script>
+
+        const searchInput = document.getElementById('user-search');
+        const userList = document.getElementById('user-list');
+        const users = userList.querySelectorAll('.user');
+        const chatHeader = document.getElementById('chat-with');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatInput = document.querySelector('.chat-input input');
+        const sendButton = document.querySelector('.chat-input button');
+        const messageInput = document.getElementById('message-input');
+        let selectedUserId = null;
+        //Tìm kiếm người dùng
+        searchInput.addEventListener('input', () => {
+            const searchText = searchInput.value.toLowerCase();
+            users.forEach(user => {
+                const userName = user.dataset.name.toLowerCase();
+                if (userName.includes(searchText)) {
+                    user.style.display = 'flex'; // Hiển thị nếu khớp
+                } else {
+                    user.style.display = 'none'; // Ẩn nếu không khớp
+                }
+            });
+        });
+
+        // Hàm hiển thị hội thoại
+        function loadConversation(user) {
+            const userName = user.dataset.name;
+            const userId = user.dataset.id;
+
+            // Cập nhật tiêu đề chat-header
+            chatHeader.textContent = userName;
+            selectedUserId = userId;
+
+            // Xóa tin nhắn cũ (hoặc tải từ cơ sở dữ liệu)
+            chatMessages.innerHTML = '';
+
+            // Mô phỏng tin nhắn cũ
+            chatMessages.innerHTML += `
+                <div class="message received">Chào bạn! Đây là tin nhắn mẫu của ${userName}.</div>
+                <div class="message sent">Xin chào, có gì tôi giúp được bạn?</div>
+            `;
+
+            // Cuộn xuống cuối tin nhắn
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Chọn người dùng đầu tiên mặc định
+        if (users.length > 0) {
+            loadConversation(users[0]);
+        }
+
+        // Xử lý sự kiện click để chọn người dùng khác
+        users.forEach(user => {
+            user.addEventListener('click', () => {
+                loadConversation(user);
+            });
+        });
+        // Hàm gửi tin nhắn
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                // Thêm tin nhắn của người gửi
+                const sentMessage = document.createElement('div');
+                sentMessage.classList.add('message', 'sent');
+                sentMessage.textContent = message;
+                chatMessages.appendChild(sentMessage);
+
+                // Mô phỏng tin nhắn phản hồi
+                setTimeout(() => {
+                    const receivedMessage = document.createElement('div');
+                    receivedMessage.classList.add('message', 'received');
+                    receivedMessage.textContent = `Phản hồi từ ${chatHeader.textContent}`;
+                    chatMessages.appendChild(receivedMessage);
+
+                    // Cuộn xuống cuối
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+
+                // Xóa nội dung input và cuộn xuống
+                messageInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+        // Lắng nghe sự kiện nhấn Enter
+        messageInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Ngăn form submit mặc định
+                sendMessage();
+            }
+        });
+
+        // Lắng nghe sự kiện click nút gửi
+        sendButton.addEventListener('click', sendMessage);
+
+    </script>
+</body>
+</html>

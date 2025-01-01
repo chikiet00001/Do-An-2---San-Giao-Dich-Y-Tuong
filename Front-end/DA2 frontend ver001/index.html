@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sàn Ý Tưởng - Đại học Nam Cần Thơ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Sàn Ý Tưởng</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="ideas.html">Ý tưởng</a></li>
+                <li><a href="solutions.html">Giải pháp</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm ý tưởng hoặc giải pháp...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn login-btn">Đăng nhập</button>
+            <button class="btn signup-btn">Đăng ký</button>
+        </div>
+    </header>
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Biến ý tưởng thành hiện thực</h1>
+        <p>Kết nối sinh viên và nhà đầu tư tại Đại học Nam Cần Thơ.</p>
+        <button class="btn banner-btn">Khám phá ngay</button>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2>Danh mục nổi bật</h2>
+        <div class="category-list">
+            <div class="category">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Công nghệ</h3>
+                <p>50+ Ý tưởng</p>
+            </div>
+            <div class="category">
+                <i class="fas fa-chart-line"></i>
+                <h3>Kinh doanh</h3>
+                <p>30+ Ý tưởng</p>
+            </div>
+            <div class="category">
+                <i class="fas fa-leaf"></i>
+                <h3>Môi trường</h3>
+                <p>20+ Ý tưởng</p>
+            </div>
+            <div class="category">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Y tế</h3>
+                <p>15+ Ý tưởng</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Ideas -->
+    <section class="latest-ideas">
+        <h2>Ý tưởng mới nhất</h2>
+        <div class="idea-list">
+            <div class="idea-card">
+                <img src="https://cdn.nguyenkimmall.com/images/companies/_1/tin-tuc/kinh-nghiem-meo-hay/ng%20d%E1%BB%A5ng%20h%E1%BB%8Dc%20t%E1%BA%ADp/onluyen.vn.jpg" alt="Ý tưởng 1">
+                <h3>Ứng dụng quản lý học tập thông minh</h3>
+                <p class="author">Tác giả: Nguyễn Văn A</p>
+                <p class="summary">Ứng dụng giúp sinh viên quản lý thời gian học tập hiệu quả hơn.</p>
+            </div>
+            <div class="idea-card">
+                <img src="https://thumuaphelieugiacao.com.vn/wp-content/uploads/2019/11/quy-trinh-xu-ly-rac-thai-nhua.jpg" alt="Ý tưởng 2">
+                <h3>Giải pháp tái chế rác thải nhựa</h3>
+                <p class="author">Tác giả: Trần Thị B</p>
+                <p class="summary">Sáng kiến tái chế rác thải nhựa để bảo vệ môi trường.</p>
+            </div>
+            <div class="idea-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1KmFNNlSRRoERgKRwYcNa21uvxPUfn15mlg&s" alt="Ý tưởng 3">
+                <h3>Phần mềm quản lý sức khỏe từ xa</h3>
+                <p class="author">Tác giả: Lê Văn C</p>
+                <p class="summary">Giúp người dùng theo dõi tình trạng sức khỏe ngay tại nhà.</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- Investment Call -->
+    <section class="investment-call">
+        <h2>Kêu gọi đầu tư</h2>
+        <div class="investment-list">
+            <div class="investment-card">
+                <h3>Ứng dụng quản lý học tập thông minh</h3>
+                <p class="summary">Ứng dụng giúp sinh viên quản lý thời gian học tập hiệu quả hơn.</p>
+                <p class="status">Đang tìm kiếm: 500 triệu VND</p>
+            </div>
+            <div class="investment-card">
+                <h3>Giải pháp tái chế rác thải nhựa</h3>
+                <p class="summary">Sáng kiến tái chế rác thải nhựa để bảo vệ môi trường.</p>
+                <p class="status">Đang tìm kiếm: 300 triệu VND</p>
+            </div>
+            <div class="investment-card">
+                <h3>Phần mềm quản lý sức khỏe từ xa</h3>
+                <p class="summary">Giúp người dùng theo dõi tình trạng sức khỏe ngay tại nhà.</p>
+                <p class="status">Đang tìm kiếm: 700 triệu VND</p>
+            </div>
+        </div>
+    </section>
+    <!-- Login Form -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form onsubmit="handleLogin(event)">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mật khẩu" required>
+                <button type="submit" class="btn">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSignup">&times;</span>
+            <h2>Đăng ký</h2>
+            <form onsubmit="handleSignup(event)">
+                <input type="text" placeholder="Họ và tên" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mật khẩu" required>
+                <input type="password" placeholder="Xác nhận mật khẩu" required>
+                <button type="submit" class="btn">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Đại học Nam Cần Thơ - Sàn Ý Tưởng. Liên hệ: lekhoa583@gmail.com</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Get modal elements
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+    
+        // Get buttons
+        const loginBtn = document.querySelector('.login-btn');
+        const signupBtn = document.querySelector('.signup-btn');
+    
+        // Get close buttons
+        const closeLogin = document.getElementById('closeLogin');
+        const closeSignup = document.getElementById('closeSignup');
+    
+        // Show login modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+    
+        // Show signup modal
+        signupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'flex';
+        });
+    
+        // Close login modal
+        closeLogin.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+    
+        // Close signup modal
+        closeSignup.addEventListener('click', () => {
+            signupModal.style.display = 'none';
+        });
+    
+        // Close modal when clicking outside content
+        window.addEventListener('click', (event) => {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (event.target === signupModal) {
+                signupModal.style.display = 'none';
+            }
+        });
+    function handleLogin(event) {
+        event.preventDefault(); // Ngăn form gửi yêu cầu thực tế
+        // Giả sử kiểm tra đăng nhập thành công
+        const loginSuccess = true; // Thay bằng kiểm tra thực tế
+        
+        if (loginSuccess) {
+            alert("Đăng nhập thành công!");
+            window.location.href = "dashboard.html"; // Điều hướng đến trang người dùng
+        } else {
+            alert("Đăng nhập thất bại, vui lòng thử lại.");
+        }
+    }
+
+    function handleSignup(event) {
+        event.preventDefault(); // Ngăn form gửi yêu cầu thực tế
+        // Giả sử đăng ký thành công
+        const signupSuccess = true; // Thay bằng kiểm tra thực tế
+        
+        if (signupSuccess) {
+            alert("Đăng ký thành công!");
+            window.location.href = "dashboard.html"; // Điều hướng đến trang người dùng
+        } else {
+            alert("Đăng ký thất bại, vui lòng thử lại.");
+        }
+    }
+
+    </script>
+    
+</body>
+</html>

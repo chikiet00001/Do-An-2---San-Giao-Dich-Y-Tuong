@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Yêu Cầu - Sàn Ý Tưởng</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Sàn Ý Tưởng</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="ideas.html">Ý tưởng</a></li>
+                <li><a href="solutions.html">Tìm giải pháp</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Solution Detail -->
+    <section class="solution-detail">
+        <div class="detail-header">
+            <h1>Ứng dụng quản lý học tập</h1>
+            <p class="requester">Người yêu cầu: Nguyễn Văn A | Ngày đăng: 20/11/2024</p>
+        </div>
+        <div class="detail-content">
+            <h2>Vấn đề cần giải quyết</h2>
+            <p class="problem">
+                Tìm kiếm giải pháp tối ưu hóa giao diện người dùng cho ứng dụng quản lý học tập thông minh,
+                đảm bảo thân thiện với sinh viên.
+            </p>
+            <h2>Phản hồi từ cộng đồng</h2>
+            <ul class="feedback-list">
+                <li>Phản hồi 1: Cải thiện cách bố trí menu, tạo thêm không gian trống.</li>
+                <li>Phản hồi 2: Tích hợp chức năng tìm kiếm nhanh vào trang chính.</li>
+            </ul>
+        </div>
+        <div class="actions">
+            <button class="btn submit-solution-btn">Gửi giải pháp</button>
+        </div>
+    </section>
+    <section class="feedback">
+        <h2>Đánh giá và phản hồi</h2>
+        <div class="rating">
+            <p>Đánh giá ý tưởng:</p>
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <form class="feedback-form">
+            <textarea placeholder="Nhập phản hồi của bạn..." required></textarea>
+            <button type="submit" class="btn submit-feedback-btn">Gửi phản hồi</button>
+        </form>
+        <div class="feedback-list">
+            <h3>Phản hồi từ cộng đồng:</h3>
+            <ul>
+                <li><strong>Nguyễn Văn B:</strong> Ý tưởng rất sáng tạo, tôi nghĩ có thể cải thiện thêm phần UX/UI.</li>
+                <li><strong>Trần Thị C:</strong> Rất hữu ích cho sinh viên, cần triển khai sớm.</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Đại học Nam Cần Thơ - Sàn Ý Tưởng. Liên hệ: lekhoa583@gmail.com</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Handle star rating
+        const stars = document.querySelectorAll('.star');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                // Xóa lớp 'active' của tất cả các sao
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.classList.add('active'); // Tô vàng các sao đến vị trí được nhấp
+                    } else {
+                        s.classList.remove('active'); // Bỏ tô vàng các sao sau vị trí nhấp
+                    }
+                });
+
+                // Ghi lại giá trị đánh giá
+                const rating = index + 1;
+                console.log(`Rating selected: ${rating}`); // Xử lý rating tại đây nếu cần
+            });
+        });
+    
+        // Handle feedback submission
+        const feedbackForm = document.querySelector('.feedback-form');
+        feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const feedbackText = feedbackForm.querySelector('textarea').value;
+            if (feedbackText.trim()) {
+                // Thêm phản hồi vào danh sách (Xử lý lưu vào server tại đây nếu cần)
+                const feedbackList = document.querySelector('.feedback-list ul');
+                const newFeedback = document.createElement('li');
+                newFeedback.innerHTML = `<strong>Bạn:</strong> ${feedbackText}`;
+                feedbackList.appendChild(newFeedback);
+    
+                // Reset form
+                feedbackForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>

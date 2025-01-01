@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Ý Tưởng</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Sàn Ý Tưởng</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="ideas.html">Ý tưởng</a></li>
+                <li><a href="solutions.html">Giải pháp</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Idea Details -->
+    <section class="idea-detail">
+        <h1>Ứng dụng quản lý học tập thông minh</h1>
+        <img src="https://cdn.nguyenkimmall.com/images/companies/_1/tin-tuc/kinh-nghiem-meo-hay/ng%20d%E1%BB%A5ng%20h%E1%BB%8Dc%20t%E1%BA%ADp/onluyen.vn.jpg" alt="Ý tưởng">
+        <p><strong>Mô tả:</strong> Ứng dụng giúp sinh viên quản lý thời gian học tập hiệu quả hơn...</p>
+        <p><strong>Mục tiêu:</strong> Tăng năng suất học tập và quản lý thời gian.</p>
+        <p><strong>Kế hoạch:</strong> Triển khai trong 6 tháng với 3 giai đoạn...</p>
+        <p><strong>Thông tin tác giả:</strong> Nguyễn Văn A, nhóm phát triển SmartStudy.</p>
+        <div class="actions">
+            <button class="btn download-btn">Tải tài liệu</button>
+            <button class="btn contact-btn">Liên hệ tác giả</button>
+        </div>
+    </section>
+    <section class="feedback">
+        <h2>Đánh giá và phản hồi</h2>
+        <div class="rating">
+            <p>Đánh giá ý tưởng:</p>
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <form class="feedback-form">
+            <textarea placeholder="Nhập phản hồi của bạn..." required></textarea>
+            <button type="submit" class="btn submit-feedback-btn">Gửi phản hồi</button>
+        </form>
+        <div class="feedback-list">
+            <h3>Phản hồi từ cộng đồng:</h3>
+            <ul>
+                <li><strong>Nguyễn Văn B:</strong> Ý tưởng rất sáng tạo, tôi nghĩ có thể cải thiện thêm phần UX/UI.</li>
+                <li><strong>Trần Thị C:</strong> Rất hữu ích cho sinh viên, cần triển khai sớm.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Đại học Nam Cần Thơ - Sàn Ý Tưởng. Liên hệ: lekhoa583@gmail.com</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Handle star rating
+        const stars = document.querySelectorAll('.star');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                // Xóa lớp 'active' của tất cả các sao
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.classList.add('active'); // Tô vàng các sao đến vị trí được nhấp
+                    } else {
+                        s.classList.remove('active'); // Bỏ tô vàng các sao sau vị trí nhấp
+                    }
+                });
+
+                // Ghi lại giá trị đánh giá
+                const rating = index + 1;
+                console.log(`Rating selected: ${rating}`); // Xử lý rating tại đây nếu cần
+            });
+        });
+    
+        // Handle feedback submission
+        const feedbackForm = document.querySelector('.feedback-form');
+        feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const feedbackText = feedbackForm.querySelector('textarea').value;
+            if (feedbackText.trim()) {
+                // Thêm phản hồi vào danh sách (Xử lý lưu vào server tại đây nếu cần)
+                const feedbackList = document.querySelector('.feedback-list ul');
+                const newFeedback = document.createElement('li');
+                newFeedback.innerHTML = `<strong>Bạn:</strong> ${feedbackText}`;
+                feedbackList.appendChild(newFeedback);
+    
+                // Reset form
+                feedbackForm.reset();
+            }
+        });
+    </script>
+    
+</body>
+</html>
